@@ -176,10 +176,10 @@ background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%); */
 
 
 
-.header:hover{
+/* .header:hover{
 backdrop-filter: blur(22px) grayscale(0.8) opacity(0.9);
-}
-.data:hover{
+} */
+.data:active{
   backdrop-filter: blur(22px) grayscale(0.8) opacity(0.9);
   }
 
