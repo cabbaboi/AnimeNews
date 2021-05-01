@@ -179,9 +179,10 @@ background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%); */
 /* .header:hover{
 backdrop-filter: blur(22px) grayscale(0.8) opacity(0.9);
 } */
-.data:active{
+.example-2:active .data{
   backdrop-filter: blur(22px) grayscale(0.8) opacity(0.9);
-  }
+  
+}
 
   .mbutton {
     position: relative;
