@@ -8,7 +8,8 @@ let collumn6 = document.getElementById('collumn6');
 
 // cd7bab009c4dba422b7693d995e537d4
 // 7697528e901373d545763d39dc2b5146
-let apiKey = '7697528e901373d545763d39dc2b5146';
+// let apiKey = '7697528e901373d545763d39dc2b5146';
+let apiKey = 'cd7bab009c4dba422b7693d995e537d4';
 // ${apiKey}
 const xhr = new XMLHttpRequest();
 xhr.open('GET', `https://gnews.io/api/v4/search?q=anime&lang=en&country=us&token=${apiKey}`, true);
