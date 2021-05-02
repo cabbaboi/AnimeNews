@@ -294,7 +294,7 @@ xhr.onload = function () {
             newsHtml += news;
         });
         collumn5.innerHTML = newsHtml;
-        collumn6.innerHTML=`<button id="button5" class="mbutton" onclick="myFunction5()">Load more...</button>`;
+//         collumn6.innerHTML=`<button id="button5" class="mbutton" onclick="myFunction5()">Load more...</button>`;
     }
     else {
         console.log("Some error occured")
