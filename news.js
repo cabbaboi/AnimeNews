@@ -1,4 +1,5 @@
 let collumn = document.getElementById('collumn');
+let collumn0 = document.getElementById('collumn0');
 let collumn1 = document.getElementById('collumn1');
 let collumn2 = document.getElementById('collumn2');
 let collumn3 = document.getElementById('collumn3');
@@ -11,6 +12,56 @@ let collumn6 = document.getElementById('collumn6');
 let apiKey = '7697528e901373d545763d39dc2b5146';
 // let apiKey = 'cd7bab009c4dba422b7693d995e537d4';
 // ${apiKey}
+
+const xhr = new XMLHttpRequest();
+xhr.open('GET', `https://api.currentsapi.services/v1/search?keywords=anime&language=en&country=jp&apiKey=RzUh0yVak4KtwfzekN40A-RikhpaFZUfvJ67_vu5pWF6vj28`, true);
+
+// What to do when response is ready
+xhr.onload = function () {
+    if (this.status === 200) {
+        let json = JSON.parse(this.responseText);
+        let articles = json.news;
+        console.log(articles);
+        let newsHtml = "";
+        articles.forEach(function(element, index) {
+            console.log(element, index)
+            let news = `
+                            <div class="example-2 card">
+                            <div class="wrapper" style="background-image: url(${element["image"]});">
+                            <div class="header">
+                                <div class="date">
+                                </div>
+                                <ul class="menu-content">
+                                <li><a><span>${element["published"]}</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="data">
+                                <div class="content">
+                                <span class="author">${element["author"]}</span>
+                                <h1 class="title"><a>${element["title"]}</a></h1>
+                                <div class="backdrop"><p class="text">${element["description"]}
+                                </p></div>
+                                <a target="_blank" href="${element['url']}" class="button">Read more</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        `;
+            newsHtml += news;
+        });
+        collumn.innerHTML = newsHtml;
+        
+        collumn0.innerHTML =`<button id="button" class="mbutton" onclick="myFunction()">Load more...</button>`;
+    }
+    else {
+        console.log("Some error occured")
+    }
+}
+
+xhr.send()
+
+
+function myFunction() {
 const xhr = new XMLHttpRequest();
 xhr.open('GET', `https://gnews.io/api/v4/search?q=anime&lang=en&country=us&token=${apiKey}`, true);
 
@@ -47,8 +98,9 @@ xhr.onload = function () {
                         `;
             newsHtml += news;
         });
-        collumn.innerHTML = newsHtml;
-        collumn1.innerHTML =`<button id="button" class="mbutton" onclick="myFunction()">Load more...</button>`;
+       
+        collumn0.innerHTML = newsHtml;
+        collumn1.innerHTML=`<button id="button0" class="mbutton" onclick="myFunction0()">Load more...</button>`;
     }
     else {
         console.log("Some error occured")
@@ -56,8 +108,10 @@ xhr.onload = function () {
 }
 
 xhr.send()
+    
+}    
 
-function myFunction() {
+function myFunction0() {
     const xhr = new XMLHttpRequest();
 xhr.open('GET', `https://gnews.io/api/v4/search?q=anime&lang=en&country=au&token=${apiKey}`, true);
 
