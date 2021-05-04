@@ -27,7 +27,7 @@ xhr.onload = function () {
             console.log(element, index)
             let news = `
                             <div class="example-2 card">
-                            <div class="wrapper" style="background-image: url(${element["image"]});">
+                            <div class="wrapper" style="background: url(${element["image"]});">
                             <div class="header">
                                 <div class="date">
                                 </div>
