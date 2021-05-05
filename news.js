@@ -361,9 +361,8 @@ xhr.send()
   }  
 
 
-
-
-document.getElementsByClassName(".button").addEventListener('click', event => {
+const shareButton = document.querySelector('.button');
+shareButton.addEventListener('click', event => {
   if (navigator.share) {
     navigator.share({
       title: 'WebShare API Demo',
