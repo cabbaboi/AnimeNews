@@ -52,6 +52,23 @@ xhr.onload = function () {
         collumn.innerHTML = newsHtml;
         
         collumn0.innerHTML =`<button id="button" class="mbutton" onclick="myFunction()">Load more...</button>`;
+
+const shareButton = document.querySelector('.button');
+shareButton.addEventListener('click', event => {
+  if (navigator.share) {
+    navigator.share({
+      title: 'WebShare API Demo',
+      url: window.location.href
+    }).then(() => {
+      console.log('Thanks for sharing!');
+    })
+    .catch(console.error);
+  } else {
+    // fallback
+  }
+});
+
+
     }
     else {
         console.log("Some error occured")
@@ -361,17 +378,3 @@ xhr.send()
   }  
 
 
-const shareButton = document.querySelector('.button');
-shareButton.addEventListener('click', event => {
-  if (navigator.share) {
-    navigator.share({
-      title: 'WebShare API Demo',
-      url: window.location.href
-    }).then(() => {
-      console.log('Thanks for sharing!');
-    })
-    .catch(console.error);
-  } else {
-    // fallback
-  }
-});
