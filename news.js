@@ -359,3 +359,14 @@ xhr.onload = function () {
 xhr.send()
 
   }  
+
+
+
+navigator
+    .share({
+        title: document.title,
+        text: 'Hello World',
+        url: window.location.href
+    })
+    .then(() => console.log('Successful share! 🎉'))
+    .catch(err => console.error(err));
