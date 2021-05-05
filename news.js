@@ -362,11 +362,17 @@ xhr.send()
 
 
 
-navigator
-    .share({
-        title: document.title,
-        text: 'Hello World',
-        url: window.location.href
+
+button.addEventListener('click', event => {
+  if (navigator.share) {
+    navigator.share({
+      title: 'WebShare API Demo',
+      url: window.location.href
+    }).then(() => {
+      console.log('Thanks for sharing!');
     })
-    .then(() => console.log('Successful share! 🎉'))
-    .catch(err => console.error(err));
+    .catch(console.error);
+  } else {
+    // fallback
+  }
+});
