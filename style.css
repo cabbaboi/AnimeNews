@@ -87,13 +87,13 @@ background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%); */
    font-weight: bold;
 }
  .card .title {
-	 margin-top: 50px;
+	 margin-top: 10px;
 }
 .card .backdrop {
-  border-radius: 8px;
+/*   border-radius: 8px; */
   /* backdrop-filter: blur(5.0px); */
-  margin-top: 20px;
-  padding-bottom: 5px;
+  margin-top: 0px;
+  padding-bottom: 0px;
 }
  .card .text {
 	 height: 60px;
