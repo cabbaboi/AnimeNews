@@ -72,7 +72,7 @@ background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%); */
 }
  .card .data {
 	 position: absolute;
-	 top: 300px;
+	 top: 280px;
 	 bottom: 0;
 	 width: 100%;
 	 transform: translateY(calc(70px + 1em));
