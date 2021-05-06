@@ -1,4 +1,5 @@
 let collumn = document.getElementById('collumn');
+let collumn00 = document.getElementById('collumn00');
 let collumn0 = document.getElementById('collumn0');
 let collumn1 = document.getElementById('collumn1');
 let collumn2 = document.getElementById('collumn2');
@@ -13,57 +14,59 @@ let apiKey = '7697528e901373d545763d39dc2b5146';
 // let apiKey = 'cd7bab009c4dba422b7693d995e537d4';
 // ${apiKey}
 
-// const xhr = new XMLHttpRequest();
-// xhr.open('GET', `https://api.currentsapi.services/v1/search?keywords=anime&language=en&country=jp&apiKey=RzUh0yVak4KtwfzekN40A-RikhpaFZUfvJ67_vu5pWF6vj28`, true);
+const xhr = new XMLHttpRequest();
+xhr.open('GET', `https://api.currentsapi.services/v1/search?keywords=anime&language=en&country=jp&apiKey=RzUh0yVak4KtwfzekN40A-RikhpaFZUfvJ67_vu5pWF6vj28`, true);
 
-// // What to do when response is ready
-// xhr.onload = function () {
-//     if (this.status === 200) {
-//         let json = JSON.parse(this.responseText);
-//         let articles = json.news;
-//         console.log(articles);
-//         let newsHtml = "";
-//         articles.forEach(function(element, index) {
-//             console.log(element, index)
-//             let news = `
-//                             <div class="example-2 card">
-//                             <div class="wrapper" style="background-image: url(${element["image"]});">
-//                             <div class="header">
-//                                 <div class="date">
-//                                 </div>
-//                                 <ul class="menu-content">
-//                                 <li><a><span>${element["published"]}</span></a></li>
-//                                 </ul>
-//                             </div>
-//                             <div class="data">
-//                                 <div class="content">
-//                                 <span class="author">${element["author"]}</span>
-//                                 <h1 class="title"><a>${element["title"]}</a></h1>
-//                                 <div class="backdrop"><p class="text">${element["description"]}
-//                                 </p></div>
-//                                 <a target="_blank" href="${element['url']}" class="button">Read more</a>
-//                                 </div>
-//                             </div>
-//                             </div>
-//                         </div>
-//                         `;
-//             newsHtml += news;
-//         });
-//         collumn.innerHTML = newsHtml;
+// What to do when response is ready
+xhr.onload = function () {
+    if (this.status === 200) {
+        let json = JSON.parse(this.responseText);
+        let articles = json.news;
+        console.log(articles);
+        let newsHtml = "";
+        articles.forEach(function(element, index) {
+            console.log(element, index)
+            let news = `
+                            <div class="example-2 card">
+                            <div class="wrapper" style="background-image: url(${element["image"]});">
+                            <div class="header">
+                                <div class="date">
+                                </div>
+                                <ul class="menu-content">
+                                <li><a><span>${element["published"]}</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="data">
+                                <div class="content">
+                                <span class="author">${element["author"]}</span>
+                                <h1 class="title"><a>${element["title"]}</a></h1>
+                                <div class="backdrop"><p class="text">${element["description"]}
+                                </p></div>
+                                <a target="_blank" href="${element['url']}" class="button">Read more</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        `;
+            newsHtml += news;
+        });
+        collumn.innerHTML = newsHtml;
         
-//         collumn0.innerHTML =`<button id="button" class="mbutton" onclick="myFunction()">Load more...</button>`;
+        collumn00.innerHTML =`<button id="button00" class="mbutton" onclick="myFunction00()">Load more...</button>`;
 
 
 
 
-//     }
-//     else {
-//         console.log("Some error occured")
-//     }
-// }
+    }
+    else {
+        console.log("Some error occured")
+    }
+}
 
-// xhr.send()
+xhr.send()
 
+
+function myFunction00() {
 const xhr = new XMLHttpRequest();
 xhr.open('GET', `https://gnewsapi.net/api/search?q=anime&language=en&country=us&api_token=BGUsbzrxzRRxlewkRmKQ1rND9EW5O21DwiuQAI03rretcrX7zSv6eY8pWLmv`, true);
 
@@ -100,7 +103,7 @@ xhr.onload = function () {
                         `;
             newsHtml += news;
         });
-        collumn.innerHTML = newsHtml;
+        collumn00.innerHTML = newsHtml;
         
         collumn0.innerHTML =`<button id="button" class="mbutton" onclick="myFunction()">Load more...</button>`;
 
@@ -114,6 +117,7 @@ xhr.onload = function () {
 }
 
 xhr.send()
+}
 
 
 function myFunction() {
