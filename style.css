@@ -74,7 +74,7 @@ background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%); */
 	 position: absolute;
 	 bottom: 0;
 	 width: 100%;
-	 transform: translateY(calc(75px + 1em));
+	 transform: translateY(calc(95px + 1em));
 	 transition: transform 0.3s;
 }
  .card .data .content {
