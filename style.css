@@ -85,9 +85,10 @@ background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%); */
  .card .author {
 	 font-size: 12px;
    font-weight: bold;
+	 margin-bottom: 10px;
 }
  .card .title {
-	 margin-top: 10px;
+	 
 	 font-size: 25px;
 }
 .card .backdrop {
