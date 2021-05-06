@@ -65,7 +65,7 @@ let apiKey = '7697528e901373d545763d39dc2b5146';
 // xhr.send()
 
 const xhr = new XMLHttpRequest();
-xhr.open('GET', `https://gnewsapi.net/api/search?q=anime&language=en&country=uk&api_token=BGUsbzrxzRRxlewkRmKQ1rND9EW5O21DwiuQAI03rretcrX7zSv6eY8pWLmv`, true);
+xhr.open('GET', `https://gnewsapi.net/api/search?q=anime&language=en&country=jp&api_token=BGUsbzrxzRRxlewkRmKQ1rND9EW5O21DwiuQAI03rretcrX7zSv6eY8pWLmv`, true);
 
 // What to do when response is ready
 xhr.onload = function () {
