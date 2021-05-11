@@ -232,7 +232,7 @@ xhr.send()
 
   function myFunction1() {
     const xhr = new XMLHttpRequest();
-xhr.open('GET', `https://gnews.io/api/v4/search?q=anime&lang=en&country=in&token=${apiKey}`, true);
+      xhr.open('GET', `https://gnews.io/api/v4/search?q=anime&lang=en&country=gb&token=${apiKey}`, true);
 
 // What to do when response is ready
 xhr.onload = function () {
@@ -267,6 +267,8 @@ xhr.onload = function () {
                         `;
             newsHtml += news;
         });
+      
+
         collumn2.innerHTML = newsHtml;
         collumn3.innerHTML=`<button id="button2" class="mbutton" onclick="myFunction2()">Load more...</button>`;
     }
@@ -331,7 +333,7 @@ xhr.send()
 
   function myFunction3() {
     const xhr = new XMLHttpRequest();
-xhr.open('GET', `https://gnews.io/api/v4/search?q=anime&lang=en&country=gb&token=${apiKey}`, true);
+      xhr.open('GET', `https://gnews.io/api/v4/search?q=anime&lang=en&country=in&token=${apiKey}`, true);
 
 // What to do when response is ready
 xhr.onload = function () {
@@ -366,6 +368,7 @@ xhr.onload = function () {
                         `;
             newsHtml += news;
         });
+
         collumn4.innerHTML = newsHtml;
         collumn5.innerHTML=`<button id="button4" class="mbutton" onclick="myFunction4()">Load more...</button>`;
     }
