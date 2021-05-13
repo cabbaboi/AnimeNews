@@ -15,6 +15,61 @@ let apiKey = '7697528e901373d545763d39dc2b5146';
 // ${apiKey}
 
 const xhr = new XMLHttpRequest();
+xhr.open('GET', `https://gnews.io/api/v4/search?q=anime&lang=en&country=us&token=${apiKey}`, true);
+
+// What to do when response is ready
+xhr.onload = function () {
+    if (this.status === 200) {
+        let json = JSON.parse(this.responseText);
+        let articles = json.articles;
+        console.log(articles);
+        let newsHtml = "";
+        articles.forEach(function(element, index) {
+            console.log(element, index)
+            let news = `
+                            <div class="example-2 card">
+                            <div class="wrapper" style="background-image: url(${element["image"]});">
+                            <div class="header">
+                                <div class="date">
+                                </div>
+                                <ul class="menu-content">
+                                <li><a><span>${element["publishedAt"]}</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="data">
+                                <div class="content">
+                                <span class="author">${element.source.name}</span>
+                                <h1 class="title"><a>${element["title"]}</a></h1>
+                                <div class="backdrop"><p class="text">${element["description"]}
+                                </p></div>
+                                <a target="_blank" href="${element['url']}" class="button">Read more</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        `;
+            newsHtml += news;
+        });
+
+
+        collumn.innerHTML = newsHtml;
+        
+        collumn00.innerHTML =`<button id="button00" class="mbutton" onclick="myFunction00()">Load more...</button>`;
+
+
+
+
+    }
+    else {
+        console.log("Some error occured")
+    }
+}
+
+xhr.send()
+
+
+function myFunction00() {
+const xhr = new XMLHttpRequest();
 xhr.open('GET', `https://gnewsapi.net/api/search?q=anime&language=en&country=us&api_token=BGUsbzrxzRRxlewkRmKQ1rND9EW5O21DwiuQAI03rretcrX7zSv6eY8pWLmv`, true);
 
 // What to do when response is ready
@@ -52,59 +107,7 @@ xhr.onload = function () {
         });
 
 
-        collumn.innerHTML = newsHtml;
-        
-        collumn00.innerHTML =`<button id="button00" class="mbutton" onclick="myFunction00()">Load more...</button>`;
-
-
-
-
-    }
-    else {
-        console.log("Some error occured")
-    }
-}
-
-xhr.send()
-
-
-function myFunction00() {
-const xhr = new XMLHttpRequest();
-    xhr.open('GET', `https://gnews.io/api/v4/search?q=anime&lang=en&country=us&token=${apiKey}`, true);
-
-// What to do when response is ready
-xhr.onload = function () {
-    if (this.status === 200) {
-        let json = JSON.parse(this.responseText);
-        let articles = json.articles;
-        console.log(articles);
-        let newsHtml = "";
-        articles.forEach(function(element, index) {
-            console.log(element, index)
-            let news = `
-                            <div class="example-2 card">
-                            <div class="wrapper" style="background-image: url(${element["image"]});">
-                            <div class="header">
-                                <div class="date">
-                                </div>
-                                <ul class="menu-content">
-                                <li><a><span>${element["publishedAt"]}</span></a></li>
-                                </ul>
-                            </div>
-                            <div class="data">
-                                <div class="content">
-                                <span class="author">${element.source.name}</span>
-                                <h1 class="title"><a>${element["title"]}</a></h1>
-                                <div class="backdrop"><p class="text">${element["description"]}
-                                </p></div>
-                                <a target="_blank" href="${element['url']}" class="button">Read more</a>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        `;
-            newsHtml += news;
-        });
+    
 
         collumn00.innerHTML = newsHtml;
         
