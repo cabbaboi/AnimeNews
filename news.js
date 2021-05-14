@@ -1,3 +1,4 @@
+let collumn007 = document.getElementById('collumn007');
 let collumn = document.getElementById('collumn');
 let collumn00 = document.getElementById('collumn00');
 let collumn0 = document.getElementById('collumn0');
@@ -14,6 +15,62 @@ let apiKey = '7697528e901373d545763d39dc2b5146';
 // let apiKey = 'cd7bab009c4dba422b7693d995e537d4';
 // ${apiKey}
 
+
+
+
+
+fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=%22anime%22&pageNumber=1&pageSize=23&autoCorrect=true&safeSearch=false&withThumbnails=true&fromPublishedDate=null&toPublishedDate=null", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "db257b185dmsh347821e2aab85b8p119874jsnfc0597d74c9b",
+		"x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
+	}
+})
+.then(response => {
+	console.log(response);
+    let json = JSON.parse(this.response);
+        let articles = json.value;
+        console.log(articles);
+        let newsHtml = "";
+        articles.forEach(function(element, index) {
+            console.log(element, index)
+            let news = `
+                            <div class="example-2 card">
+                            <div class="wrapper" style="background-image: url(${element.image.url});">
+                            <div class="header">
+                                <div class="date">
+                                </div>
+                                <ul class="menu-content">
+                                <li><a><span>${element["datePublished"]}</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="data">
+                                <div class="content">
+                                <span class="author">${element.provider.name}</span>
+                                <h1 class="title"><a>${element["title"]}</a></h1>
+                                <div class="backdrop"><p class="text">${element["description"]}
+                                </p></div>
+                                <a target="_blank" href="${element['url']}" class="button">Read more</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        `;
+            newsHtml += news;
+        });
+
+
+        collumn007.innerHTML = newsHtml;
+        
+        collumn.innerHTML =`<button id="button007" class="mbutton" onclick="myFunction007()">Load more...</button>`;
+})
+.catch(err => {
+	console.error(err);
+});
+
+
+
+function myFunction007() {
 const xhr = new XMLHttpRequest();
 xhr.open('GET', `https://gnews.io/api/v4/search?q=anime&lang=en&country=us&token=${apiKey}`, true);
 
@@ -66,6 +123,7 @@ xhr.onload = function () {
 }
 
 xhr.send()
+}
 
 
 function myFunction00() {
