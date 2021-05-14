@@ -19,16 +19,37 @@ let apiKey = '7697528e901373d545763d39dc2b5146';
 
 
 
-fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=%22anime%22&pageNumber=1&pageSize=23&autoCorrect=true&safeSearch=false&withThumbnails=true&fromPublishedDate=null&toPublishedDate=null", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "db257b185dmsh347821e2aab85b8p119874jsnfc0597d74c9b",
-		"x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
+// fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=%22anime%22&pageNumber=1&pageSize=23&autoCorrect=true&safeSearch=false&withThumbnails=true&fromPublishedDate=null&toPublishedDate=null", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-key": "db257b185dmsh347821e2aab85b8p119874jsnfc0597d74c9b",
+// 		"x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
+// 	}
+// })
+// .then(response => {
+// 	console.log(response);
+
+
+const data = null;
+
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+	if (this.readyState === this.DONE) {
+		console.log(this.responseText);
 	}
-})
-.then(response => {
-	console.log(response);
-    let json = JSON.parse(this.response);
+});
+
+xhr.open("GET", "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=%22anime%22&pageNumber=1&pageSize=23&autoCorrect=true&safeSearch=false&withThumbnails=true&fromPublishedDate=null&toPublishedDate=null");
+xhr.setRequestHeader("x-rapidapi-key", "db257b185dmsh347821e2aab85b8p119874jsnfc0597d74c9b");
+xhr.setRequestHeader("x-rapidapi-host", "contextualwebsearch-websearch-v1.p.rapidapi.com");
+
+
+
+xhr.onload = function () {
+    if (this.status === 200) {
+        let json = JSON.parse(this.responseText);
         let articles = json.value;
         console.log(articles);
         let newsHtml = "";
@@ -63,10 +84,22 @@ fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSe
         collumn007.innerHTML = newsHtml;
         
         collumn.innerHTML =`<button id="button007" class="mbutton" onclick="myFunction007()">Load more...</button>`;
-})
-.catch(err => {
-	console.error(err);
-});
+	    
+	    
+	    }
+    else {
+        console.log("Some error occured")
+    }
+}
+
+xhr.send(data)
+}    
+
+
+// })
+// .catch(err => {
+// 	console.error(err);
+// });
 
 
 
