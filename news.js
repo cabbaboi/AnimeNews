@@ -93,7 +93,6 @@ xhr.onload = function () {
 		}
 
 xhr.send(data)
-}    
 
 
 // })
