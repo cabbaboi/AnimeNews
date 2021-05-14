@@ -35,11 +35,11 @@ const data = null;
 const xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
 
-xhr.addEventListener("readystatechange", function () {
-	if (this.readyState === this.DONE) {
-		console.log(this.responseText);
-	}
-});
+// xhr.addEventListener("readystatechange", function () {
+// 	if (this.readyState === this.DONE) {
+// 		console.log(this.responseText);
+// 	}
+// });
 
 xhr.open("GET", "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=%22anime%22&pageNumber=1&pageSize=23&autoCorrect=true&safeSearch=false&withThumbnails=true&fromPublishedDate=null&toPublishedDate=null");
 xhr.setRequestHeader("x-rapidapi-key", "db257b185dmsh347821e2aab85b8p119874jsnfc0597d74c9b");
@@ -87,10 +87,10 @@ xhr.onload = function () {
 	    
 	    
 	    }
-    else {
-        console.log("Some error occured")
-    }
-}
+		    else {
+			console.log("Some error occured")
+		    }
+		}
 
 xhr.send(data)
 }    
